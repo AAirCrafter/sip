@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "id": "sip",
+  "version": "${version}",
+  "name": "sip",
+  "description": "(See Invis Players) allows you to see invisible players",
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://dc.aircrafter.cloud",
+        "modmenu.source": "https://github.com/AAirCrafter/sip",
+        "modmenu.modrinth": "https://modrinth.com/mod/seeinvisplayers",
+        "PlanetMC": "https://www.planetminecraft.com/mod/seeinvisplayers/",
+        "modmenu.youtube": "https://www.youtube.com/@aaircrafter"
+      },
+      "update_checker": true
+    }
+  },
+  "contact": {
+    "homepage": "https://aircrafter.cloud",
+    "issues": "https://github.com/AAirCrafter/sip"
+  },
+  "license": "All rights reserved",
+  "authors": [
+    "AAirCrafter"
+  ],
+  "icon": "assets/sip/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "fabric-datagen": [
+      "air.sip.client.SipDataGenerator"
+    ],
+    "client": [
+      "air.sip.client.SipClient"
+    ],
+    "main": [
+      "air.sip.Sip"
+    ],
+    "modmenu": [
+      "air.sip.client.ModMenuConfig"
+    ]
+  },
+  "mixins": [
+    "sip.mixins.json",
+    {
+      "config": "sip.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
