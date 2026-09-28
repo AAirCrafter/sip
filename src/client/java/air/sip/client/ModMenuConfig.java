@@ -13,7 +13,6 @@ import net.minecraft.text.Text;
 import static air.sip.Config.*;
 
 public class ModMenuConfig implements ModMenuApi {
-
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return this::createConfigScreen;
@@ -35,6 +34,13 @@ public class ModMenuConfig implements ModMenuApi {
                 entryBuilder.startBooleanToggle(Text.literal("Particles"), particles)
                         .setDefaultValue(true)
                         .setSaveConsumer(value -> particles = value)
+                        .build()
+        );
+
+        general.addEntry(
+                entryBuilder.startIntSlider(Text.literal("Opacity %"), opacityPerc,0,100)
+                        .setDefaultValue(50)
+                        .setSaveConsumer(value -> opacityPerc = value)
                         .build()
         );
 
